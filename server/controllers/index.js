@@ -9,7 +9,19 @@ module.exports = {
   users: {
     // Ditto as above
     get: function (req, res) {},
-    post: function (req, res) {}
+    post: function (req, res) {
+      // take a request object
+      // convert the request to something to pass to the model
+      // pass it to the model
+      models.users.post(req.json.username, (err, result) => {
+        if (err) {
+          console.log('Error in controller:', err);
+          return res.end();
+        }
+        res.end(result);
+      });
+      // respond to the POST request
+    }
   }
 };
 

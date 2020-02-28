@@ -6,16 +6,16 @@ USE chat;
 
 CREATE TABLE messages (
   /* Describe your table here.*/
-  id INT,
-  userID INT REFERENCES users(id),
+  id INT(10),
+  userID INT(10) REFERENCES users(id),
   room VARCHAR (20),
   message VARCHAR (250),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE users (
-  id INT,
-  userName VARCHAR (20)
+  id INT(10),
+  userName VARCHAR (20),
   PRIMARY KEY (id)
 );
 

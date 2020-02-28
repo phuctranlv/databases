@@ -9,7 +9,18 @@ module.exports = {
   users: {
     // Ditto as above.
     get: function () {},
-    post: function () {}
+    post: function (username, cb) {
+      //(later, run a SELECT query to check for existing users with the same name
+
+      //send mysql INSERT request with username
+      db.query(`INSERT INTO users (userName) VALUES (${username})`, (error, results, fields) => {
+        if (error) {
+          console.log('Error in model:', error);
+        }
+        cb(error, results);
+      });
+      //call callback based on results of request
+    }
   }
 };
 
