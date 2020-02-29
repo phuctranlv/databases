@@ -74,7 +74,7 @@ describe('Persistent Node Chat Server', function () {
     // TODO - The exact query string and query args to use
     // here depend on the schema you design, so I'll leave
     // them up to you. */
-    
+
     dbConnection.query(queryString, queryArgs, function (err) {
       if (err) { throw err; }
 
@@ -82,7 +82,7 @@ describe('Persistent Node Chat Server', function () {
       // the message we just inserted:
       request('http://127.0.0.1:3000/classes/messages', function (error, response, body) {
         // console.log('response', response.toJSON());
-        console.log('JSON Parse', JSON.parse(body)); //delete this later
+        // console.log('JSON Parse', JSON.parse(body)); //delete this later
         var messageLog = JSON.parse(body);
         expect(messageLog[0].message).to.equal('Men like you can never change!');
         expect(messageLog[0].room).to.equal('main');
