@@ -1,13 +1,13 @@
 var MessageView = {
 
-//class="username <%= Friends.isFriend(username) ? 'friend' : '' %>"
+  //class="username <%= Friends.isFriend(username) ? 'friend' : '' %>"
 
 
-// <div
+  // <div
 
-// data-userID="<%- userID %>">
-// <%- userID %>
-// </div>
+  // data-userID="<%- userID %>">
+  // <%- userID %>
+  // </div>
 
   render: _.template(`
       <!--
