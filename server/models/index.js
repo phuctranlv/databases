@@ -2,9 +2,17 @@ var db = require('../db');
 
 module.exports = {
   messages: {
-    get: function () {
+    get: function (callback) {
       console.log('about to run get message query');
-      // var query = 'SELECT * from '
+      var query = 'SELECT * from messages;';
+      db.query(query, (error, results, fields) => {
+        if (error) {
+          console.log(error);
+          callback(error, null);
+        }
+        console.log(results);
+        callback(null, results);
+      });
 
     }, // a function which produces all the messages
     post: function (requestBody, cb) {
