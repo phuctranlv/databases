@@ -12,7 +12,7 @@ module.exports = {
           return res.end();
         }
         res.end(result.toString());
-      }) // a function which handles posting a message to the database
+      }); // a function which handles posting a message to the database
     }
   },
   users: {

@@ -8,9 +8,11 @@ module.exports = {
 
       //send mysql INSERT request with username
       console.log('about to run messages db.query');
-      var querymessage = 'INSERT INTO messages (userID, room, message) VALUES ((SELECT user.id FROM users WHERE users.userName = \'' + requestBody.username + '\'), \'' + requestBody.roomname + '\', \'' + requestBody.message + '\');';
-      console.log(querymessage);
-      db.query(querymessage, (error, results, fields) => {
+      var query = 'INSERT INTO messages (userID, room, message) VALUES ((SELECT users.id FROM users WHERE users.userName = ? ), ? , ?);';
+
+      var queryParams = [`${requestBody.username}`, `${requestBody.roomname}`, `${requestBody.message}`];
+
+      db.query(query, queryParams, (error, results, fields) => {
         if (error) {
           console.log('Error in model:', error);
         }
