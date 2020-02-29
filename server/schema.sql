@@ -6,7 +6,7 @@ USE chat;
 
 CREATE TABLE messages (
   /* Describe your table here.*/
-  id INT(10),
+  id INT(10) AUTO_INCREMENT,
   userID INT(10) REFERENCES users(id),
   room VARCHAR (20),
   message VARCHAR (250),
@@ -14,7 +14,7 @@ CREATE TABLE messages (
 );
 
 CREATE TABLE users (
-  id INT(10),
+  id INT(10) AUTO_INCREMENT,
   userName VARCHAR (20),
   PRIMARY KEY (id)
 );
