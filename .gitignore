@@ -1,5 +1,9 @@
 ### node etc ###
 
+#underscore and jquery files
+client/lib/
+client/node_modules/
+
 # Logs
 logs
 *.log
