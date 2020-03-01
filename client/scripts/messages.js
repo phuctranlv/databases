@@ -7,9 +7,11 @@ var Messages = {
     return _.chain(Object.values(Messages._data)).sortBy('createdAt');
   },
 
-  add: function(message, callback = ()=>{}) {
+  add: function(message, callback) {
+
+    // Comment line below out to prevent duplicate recent message
     Messages._data[message.id] = message;
-    callback(Messages.items());
+    callback();
   },
 
   update: function(messages, callback = ()=>{}) {

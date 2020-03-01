@@ -9,7 +9,7 @@ var Parse = {
       type: 'POST',
       data: JSON.stringify(message),
       contentType: 'application/json',
-      success: successCB,
+      success: () => { Parse.readAll(); },
       error: errorCB || function (error) {
         console.error('chatterbox: Failed to create message', error);
       }

@@ -10,6 +10,10 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
 
+    // Do not send post request on an empty message
+    if (!FormView.$form.find('#message').val()) {
+      return;
+    }
 
     var message = {
       username: App.username,
